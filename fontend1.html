@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu lớp học</title>
+  <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+
+  <!-- VÙNG KÍCH HOẠT THANH TRỢ NĂNG -->
+  <div class="hover-zone"></div>
+
+  <!-- THANH TRỢ NĂNG -->
+  <header class="top-bar">
+    <button class="hamburger" onclick="toggleSidebar()">☰</button>
+    <div class="tool-btn" onclick="toggleSearch()">🔍</div>
+    <div class="tool-btn" onclick="toggleDarkMode()">🌗</div>
+    <div class="tool-btn" onclick="startGuide()">❓</div>
+
+    <!-- Ô tìm kiếm -->
+    <input type="text" id="searchInput" placeholder="Tìm học sinh, giáo viên, kỷ niệm..." oninput="searchContent()">
+  </header>
+
+
+
+  <!-- KHUNG CHÍNH -->
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="menu-item active" onclick="showSection('students', this)">👨‍🎓 Học sinh</div>
+      <div class="menu-item" onclick="showSection('gvcn', this)">👩‍🏫 GVCN</div>
+      <div class="menu-item" onclick="showSection('subjects', this)">📚 Giáo viên bộ môn</div>
+      <div class="menu-item" onclick="showSection('gallery', this)">🖼️ Hình ảnh</div>
+      <div class="menu-item" onclick="showSection('memories', this)">📖 Kỷ niệm</div>
+    </aside>
+
+
+    <!-- NỘI DUNG CHÍNH -->
+    <main class="content">
+
+      <!-- HỌC SINH -->
+      <section id="students" class="section active">
+        <h1>Danh sách học sinh</h1>
+        <div class="grid">
+          <div class="card" onclick="openModal('hs1')">
+            <img src="https://i.pravatar.cc/150?img=1">
+            <span>Nguyễn Văn A</span>
+          </div>
+
+          <div class="card add-card">+</div>
+        </div>
+      </section>
+
+      <!-- GVCN -->
+      <section id="gvcn" class="section">
+        <h1>Giáo viên chủ nhiệm</h1>
+        <div class="grid">
+          <div class="card" onclick="openModal('gvcn1')">
+            <img src="https://i.pravatar.cc/150?img=11">
+            <span>Nguyễn Thị A</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- GIÁO VIÊN BỘ MÔN -->
+      <section id="subjects" class="section">
+        <h1>Giáo viên bộ môn</h1>
+        <div class="grid">
+          <div class="card" onclick="openModal('toan')">
+            <img src="https://i.pravatar.cc/150?img=21">
+            <span>GV Toán</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- HÌNH ẢNH -->
+      <section id="gallery" class="section">
+        <h1>Hình ảnh lớp</h1>
+        <div class="grid">
+          <div class="card image-card" onclick="openModal('gallery1')">
+            <img src="https://picsum.photos/300/300">
+          </div>
+          <div class="card add-card">+</div>
+        </div>
+      </section>
+
+      <!-- KỶ NIỆM -->
+      <section id="memories" class="section">
+        <h1>Kỷ niệm</h1>
+        <div class="grid">
+          <div class="card" onclick="openModal('kn1')">
+            <img src="https://picsum.photos/200/200">
+            <span>Đà Lạt 2024</span>
+          </div>
+          <div class="card add-card">+</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ================= MODAL ================= -->
+  <div id="modal" class="modal">
+    <div class="modal-box">
+      <span class="close" onclick="closeModal()">×</span>
+      <img id="modal-img">
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+  <!-- =========================================================== -->
+
+  <!-- ===== WELCOME SCREEN ===== -->
+  <div id="welcome" class="welcome-screen">
+    <div class="welcome-box">
+      <h1>👋 Chào mừng đến website lớp học</h1>
+      <p>Bạn muốn xem hướng dẫn sử dụng không?</p>
+      <div class="welcome-actions">
+        <button class="btn guide" onclick="startGuide()">Hướng dẫn</button>
+        <button class="btn skip" onclick="skipGuide()">Bỏ qua</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== GUIDE OVERLAY ===== -->
+  <div id="guideOverlay" class="guide-overlay">
+    <div class="guide-focus"></div>
+
+    <div class="guide-box">
+      <p id="guideText"></p>
+      <button onclick="nextGuide()">Tiếp tục</button>
+    </div>
+
+    <div class="guide-arrow"></div>
+  </div>
+
+  <!-- ===== FINISH SCREEN ===== -->
+  <div id="finishGuide" class="welcome-screen">
+    <div class="welcome-box">
+      <h1>🎉 Hoàn thành hướng dẫn!</h1>
+      <p>Bạn đã sẵn sàng sử dụng website</p>
+      <button class="btn guide" onclick="closeFinish()">Bắt đầu</button>
+    </div>
+  </div>
+
+  <!-- FILE JS -->
+  <script src="script1.js"></script>
+
+</body>
+
+</html>
